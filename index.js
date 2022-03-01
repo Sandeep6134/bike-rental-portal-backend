@@ -6,7 +6,7 @@ const app=express()
 app.use(express.json())
 const cors=require("cors");
 app.use(cors())
-const {adminSignin,adminSignup} = require("./signin")
+const {userSignin,userSignup,get,userUpdateBooking} = require("./signin")
 
 
 mongo.connect();
@@ -14,8 +14,10 @@ mongo.connect();
 app.get("/bike",async(req,res,next)=>{
         res.send("server")
 })
-app.post("/adminsignin",adminSignin)
-app.post("/adminsignup",adminSignup)
+app.post("/adminsignin",userSignin)
+app.post("/adminsignup",userSignup)
+app.get("/users",get)
+app.post("/update/booking",userUpdateBooking)
 app.get("/bike/list",async(req,res,next)=>{
 
     try {

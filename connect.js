@@ -5,7 +5,7 @@ module.exports={
 
         try{
         const connection=await MongoClient.connect("mongodb+srv://root:root@cluster0.qxxpm.mongodb.net?retryWrites=true&w=majority")
-        this.db=connection.db("BikeRental")
+        this.db=connection.db("BikeRent")
        console.log("connected");
         
         }
