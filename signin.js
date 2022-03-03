@@ -27,9 +27,7 @@ module.exports.userSignup = async (req, res, next) => {
 
 // ----Sign In-----
 module.exports.userSignin = async (req, res, next) => {
-  const existUser = await mongo.db
-    .collection("Users")
-    .findOne({ name: req.body.name });
+  const existUser = await mongo.db.collection("Users").findOne({ username: req.body.username });
   if (!existUser)
     return res.status(400).send({ msg: "Username is not Correct" });
 
