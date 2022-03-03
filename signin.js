@@ -50,7 +50,7 @@ module.exports.userUpdateBooking = async(req,res,next)=>{
   
   if(isValid)
   {
-    var data = await mongo.db.collection("Users").updateOne({username:req.body.username},{$set:{booking: req.body.booking}});
+    var data = await mongo.db.collection("Users").updateOne({username:req.body.username},{$set:{booking: req.body.booking,bill: req.body.bill}});
     res.send(data)
   }
   else{
